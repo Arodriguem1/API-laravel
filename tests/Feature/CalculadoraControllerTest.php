@@ -10,7 +10,7 @@ class CalculadoraControllerTest extends TestCase
     /** @test */
     public function suma_dos_numeros()
     {
-        $response = $this->postJson('/api/sumar', ['a' => 5, 'b' => 3]);
+        $response = $this->get('/sumar?a=5&b=3');
 
         $response
             ->assertStatus(200)
@@ -22,7 +22,7 @@ class CalculadoraControllerTest extends TestCase
     /** @test */
     public function resta_dos_numeros()
     {
-        $response = $this->postJson('/api/restar', ['a' => 5, 'b' => 3]);
+        $response = $this->get('/restar?a=5&b=3');
 
         $response
             ->assertStatus(200)
