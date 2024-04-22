@@ -7,7 +7,7 @@ use Tests\CreatesApplication;
 
 abstract class TestCase extends BaseTestCase
 {
-    use CreatesAplication;
+    use CreatesApplication;
 
     protected function setUp():void
     {
