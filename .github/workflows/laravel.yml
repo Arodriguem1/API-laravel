@@ -8,7 +8,6 @@ on:
 
 jobs:
   laravel-tests:
-
     runs-on: ubuntu-latest
 
     steps:
@@ -26,6 +25,11 @@ jobs:
       run: chmod -R 777 storage bootstrap/cache
     - name: Execute tests (Unit and Feature tests) via PHPUnit/Pest
       env:
+        APP_ENV: local
+        APP_DEBUG: true
+        APP_KEY: base64:tGanQoVmoB2yrCI6RQ3TOiD+HseMEgNS6s/OeSsStGY=
+        APP_URL: http://localhost
+        LOG_CHANNEL: stack
         DB_CONNECTION: sqlite
-        DB_DATABASE: database/database.sqlite
+        DB_DATABASE: ":memory:"
       run: php artisan test
